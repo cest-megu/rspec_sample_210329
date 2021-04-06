@@ -51,7 +51,14 @@ RSpec.describe "Users", type: :request do
         expect{ subject }. to raise_error ActiveRecord::RecordNotFound
       end
     end
+  end
 
+  describe "GET #new" do
+    subject { get(new_user_path) }
+    it "リクエストが成功する" do
+      subject
+      expect(response).to have_http_status(:ok)
+    end
   end
 
 
