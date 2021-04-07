@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  binding.pry
+  # binding.pry
 
   def create
     user = User.new(user_params)
@@ -35,6 +35,9 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    user = User.find(params[:id])
+    user.destroy!
+    redirect_to user
   end
 
   private
